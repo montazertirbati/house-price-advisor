@@ -13,4 +13,14 @@ Date: 2026-10-28.
 
 Local model execution is blocked because scikit-learn and its dependencies could not be installed: files.pythonhosted.org failed DNS resolution. New Ames model training, holdout metrics and raw-test predictions have not been verified. No historical scores are presented as new results.
 
-A GitHub Actions workflow runs all behavioral tests, a synthetic training demo, standalone recommendations, and model reload. Its execution result will be linked here after verification. Synthetic scores must never be presented as Ames benchmark scores.
+## Verified on GitHub Actions
+
+[Successful validation run](https://github.com/montazertirbati/house-price-advisor/actions/runs/40755537000) on Python 3.12:
+
+- All 11 behavioral tests passed.
+- Synthetic demo trained and compared Ridge, Lasso and random forest pipelines, evaluated the CV-selected winner on holdout, and generated 40 unlabeled-row predictions.
+- Standalone recommendation command completed successfully.
+- Saved model reloaded successfully in a separate Python process.
+- Synthetic metrics and recommendation outputs were uploaded as the `synthetic-demo-results` artifact.
+
+These checks verify execution and specific behaviors on artificial records. They do not establish performance on the actual local Ames partition. Synthetic scores must never be presented as Ames benchmark scores.
